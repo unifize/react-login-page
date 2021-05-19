@@ -13,7 +13,7 @@ function App(props) {
     auth.onAuthStateChanged((user) => {
       if (user) {
         // props.history.push("/loading");
-        console.log(user.toJSON());
+        // console.log(user.toJSON());
         user.getIdToken(true).then((idToken) => {
           // This is where to call the API
 
@@ -31,13 +31,13 @@ function App(props) {
             .then((data) => {
               // Do stuff
 
-              console.log(data);
+              // console.log(data);
 
               props.history.push(`?customToken=${data.customToken}`);
             })
             .catch((error) => console.error(error));
 
-          console.log(idToken);
+          // console.log(idToken);
         });
       }
     });
