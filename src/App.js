@@ -23,7 +23,10 @@ function App(props) {
             body: JSON.stringify({ idToken }),
           };
 
-          fetch("http://localhost:5000/verify-token", requestOptions)
+          fetch(
+            `${process.env.REACT_APP_BACKEND_URL}/verify-token`,
+            requestOptions
+          )
             .then((response) => response.json())
             .then((data) => {
               // Do stuff
