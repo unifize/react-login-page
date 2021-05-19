@@ -14,9 +14,27 @@ function App(props) {
       if (user) {
         // props.history.push("/loading");
         console.log(user.toJSON());
-        user.getIdToken(true).then((token) => {
+        user.getIdToken(true).then((idToken) => {
           // This is where to call the API
-          console.log(token);
+
+          const requestOptions = {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ idToken }),
+          };
+
+          fetch("http://localhost:5000/verify-token", requestOptions)
+            .then((response) => response.json())
+            .then((data) => {
+              // Do stuff
+
+              console.log(data);
+
+              props.history.push(`?customToken=${data.customToken}`);
+            })
+            .catch((error) => console.error(error));
+
+          console.log(idToken);
         });
       }
     });
