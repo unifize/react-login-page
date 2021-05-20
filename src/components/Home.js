@@ -15,7 +15,7 @@ function Home() {
       </Button>
       <Button size="lg" variant="dark">
         <Link to="/signup" style={{ color: "white", textDecoration: "none" }}>
-          Signin
+          Signup
         </Link>
       </Button>
     </div>

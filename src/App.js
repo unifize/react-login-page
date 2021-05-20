@@ -33,7 +33,7 @@ function App(props) {
 
               // console.log(data);
 
-              props.history.push(`?customToken=${data.customToken}`);
+              props.history.push(`/customToken=${data.customToken}`);
             })
             .catch((error) => console.error(error));
 
@@ -41,14 +41,14 @@ function App(props) {
         });
       }
     });
-  }, []);
+  }, [props.history]);
 
   return (
     <Switch>
       <Route exact path="/" component={Home} />
       <Route path="/signup" component={Signup} />
       <Route path="/login" component={Login} />
-      <Route path="/loading" component={Loading} />
+      <Route path="*" component={Loading} />
     </Switch>
   );
 }
