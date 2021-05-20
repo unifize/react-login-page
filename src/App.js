@@ -51,7 +51,7 @@ function App(props) {
       <Route exact path="/" component={Home} />
       <Route path="/signup" component={Signup} />
       <Route path="/login" component={Login} />
-      <Route path="*" component={Loading} />
+      <Route component={Loading} />
     </Switch>
   );
 }
