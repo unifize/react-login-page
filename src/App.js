@@ -33,7 +33,10 @@ function App(props) {
 
               // console.log(data);
 
-              props.history.push(`/customToken=${data.customToken}`);
+              // props.history.push(`/customToken=${data.customToken}`);
+
+              window.location =
+                window.location.origin + `/customToken=${data.customToken}`;
             })
             .catch((error) => console.error(error));
 
